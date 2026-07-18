@@ -1,0 +1,12 @@
+[Unit]
+Description=LED Matrix RAM usage display
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python %h/.ledmatrix/ledmatrix_monitor.py --metric ram --device /dev/ttyACM0
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
